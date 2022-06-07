@@ -1,9 +1,27 @@
- import 'bootstrap/dist/css/bootstrap.min.css';
- import 'bootstrap/dist/js/bootstrap';
+import { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
 import Cards from './components/Cards/Cards';
 import Filters from './components/Filters/Filters';
 
  function App() {
+   const [pageNumber, setPageNumber] = useState(1)
+   const API = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+   const [fetchedData, updateFetchedData] = useState([]);
+
+  const { info, results } = fetchedData;
+   
+  useEffect(() => {
+
+    ( async () => {
+      let data = await fetch(API)
+        .then(res => res.json())
+        console.log(data);
+      updateFetchedData(data);
+    } )();
+
+  }, [API]);
+
   return (
     <div className="App">
         <h1 className='text-center  ubuntu my-5'>Rick & Morty <span className='text-primary'>Wiki</span></h1>
@@ -19,7 +37,7 @@ import Filters from './components/Filters/Filters';
                   <div className="col-4">
                     <Cards />
                   </div>
-                  
+      
               </div>
             </div>
           </div>
