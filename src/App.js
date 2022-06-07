@@ -24,7 +24,6 @@ import Search from './components/Search/Search';
     } )();
 
   }, [API]);
-
   return (
     <div>
         <h1 className='text-center  ubuntu my-5'>Rick & Morty <span className='text-primary'>Wiki</span></h1>
@@ -48,7 +47,7 @@ import Search from './components/Search/Search';
           </div>
         </div>
 
-        <Pagination setPageNumber={setPageNumber} pageNumber={pageNumber} />
+        <Pagination info={info} setPageNumber={setPageNumber} pageNumber={pageNumber} />
     </div>
   );
 }

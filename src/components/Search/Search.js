@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPaginate from 'react-paginate';
 import styles from './Search.module.scss';
 
 const Search = ({ setSearch, setPageNumber }) => {
