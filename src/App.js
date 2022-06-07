@@ -3,14 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import Cards from './components/Cards/Cards';
 import Filters from './components/Filters/Filters';
+import Pagination from './components/Pagination/Pagination';
 
  function App() {
-   const [pageNumber, setPageNumber] = useState(1)
+   const [pageNumber, setPageNumber] = useState(1);
    const API = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
    const [fetchedData, updateFetchedData] = useState([]);
 
   const { info, results } = fetchedData;
-   
+   console.log(pageNumber);
   useEffect(() => {
 
     ( async () => {
@@ -41,6 +42,8 @@ import Filters from './components/Filters/Filters';
 
           </div>
         </div>
+
+        <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
 }
