@@ -23,23 +23,22 @@ import Filters from './components/Filters/Filters';
   }, [API]);
 
   return (
-    <div className="App">
+    <div>
         <h1 className='text-center  ubuntu my-5'>Rick & Morty <span className='text-primary'>Wiki</span></h1>
 
         <div className="container">
           <div className="row">
+            {/* Filters */}
             <div className="col-3">
               <Filters />
             </div>
-
+            {/* Filters */}
+            {/* Cards */}
             <div className="col-8">
-              <div className="row">
-                  <div className="col-4">
-                    <Cards />
-                  </div>
-      
-              </div>
+                    <Cards results={results}/>
             </div>
+            {/* Cards */}
+
           </div>
         </div>
     </div>
