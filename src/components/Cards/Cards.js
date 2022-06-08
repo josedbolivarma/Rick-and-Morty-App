@@ -1,15 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Cards.module.scss';
 
-const Cards = ({ results }) => {
+const Cards = ({ results, page }) => {
 
     let display;
-
     if(results){
         display = results.map(({id, name, image, location, status}) => (
-            <div 
+            <Link
+            style={{
+                textDecoration: 'none'
+            }}
+            to={`${page}${id}`}
             key={id}
             className="col-4 position-relative mb-4"
+            >
+            <div 
+           
             >
                     <div className={styles.cards}>
                         <img 
@@ -59,6 +66,7 @@ const Cards = ({ results }) => {
                        
                     </div>
             </div>
+        </Link>
         ))
     } else {
         display = 'No Characters Found';

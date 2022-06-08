@@ -55,6 +55,7 @@ const Episodes = () => {
         <div className="col-8">
           <div className="row">
             <Cards 
+            page='/episodes/'
             results={results}
             />
           </div>

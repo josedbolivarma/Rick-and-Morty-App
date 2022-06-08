@@ -48,7 +48,9 @@ setSearch={setSearch}
     {/* Filters */}
     {/* Cards */}
     <div className="col-8">
-            <Cards results={results}/>
+            <Cards
+            page='/episodes/'
+            results={results}/>
     </div>
     {/* Cards */}
 
